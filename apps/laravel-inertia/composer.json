@@ -1,0 +1,13 @@
+{
+  "name": "elhalc8n/laravel-inertia-glassy-admin",
+  "type": "project",
+  "description": "Modern Glassy Admin Dashboard for Laravel 11/12 and Inertia.js (React)",
+  "keywords": ["laravel", "inertia", "react", "glassmorphism", "admin-dashboard"],
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "inertiajs/inertia-laravel": "^1.0",
+    "laravel/framework": "^11.0|^12.0"
+  }
+}
+

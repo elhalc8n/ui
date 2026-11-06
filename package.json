@@ -1,0 +1,25 @@
+{
+  "name": "@elhalc8n/root",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Modern Glassy Admin Dashboard & Component Suite monorepo",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:docs": "npm run dev --workspace=apps/docs",
+    "dev:react": "npm run dev --workspace=apps/react-vite",
+    "dev:next": "npm run dev --workspace=apps/nextjs-app",
+    "dev:laravel": "npm run dev --workspace=apps/laravel-inertia",
+    "build:ui": "npm run build --workspace=@elhalc8n/ui",
+    "build:docs": "npm run build --workspace=apps/docs",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "author": "elhalc8n",
+  "license": "MIT"
+}
+

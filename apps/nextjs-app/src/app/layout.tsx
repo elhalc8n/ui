@@ -1,0 +1,20 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Glassy Admin — Next.js (App Router)',
+  description: 'Modern Glassmorphic Admin Dashboard built with Next.js and @elhalc8n/ui',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="dark">
+      <body className="bg-slate-950 text-slate-100 antialiased">{children}</body>
+    </html>
+  );
+}
+

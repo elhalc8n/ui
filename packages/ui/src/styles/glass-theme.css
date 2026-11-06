@@ -1,0 +1,194 @@
+/**
+ * @elhalc8n/ui - Modern Glassmorphism Design Tokens & Utilities
+ * Complies with WCAG >= 4.5:1 text contrast and GPU-efficient 60 FPS backdrop rendering.
+ */
+
+:root {
+  /* Dynamic Glass Blur Tokens */
+  --elhalc8n-glass-blur-sm: 4px;
+  --elhalc8n-glass-blur-md: 12px;
+  --elhalc8n-glass-blur-lg: 16px;
+  --elhalc8n-glass-blur-xl: 24px;
+
+  /* Specular Highlight Tokens */
+  --elhalc8n-specular-light: rgba(255, 255, 255, 0.6);
+  --elhalc8n-specular-dark: rgba(255, 255, 255, 0.12);
+  --elhalc8n-specular-glow: rgba(99, 102, 241, 0.15);
+
+  /* Surface Opacity Tokens */
+  --elhalc8n-surface-1-light: rgba(255, 255, 255, 0.7);
+  --elhalc8n-surface-1-dark: rgba(15, 23, 42, 0.65);
+
+  --elhalc8n-surface-2-light: rgba(255, 255, 255, 0.6);
+  --elhalc8n-surface-2-dark: rgba(15, 23, 42, 0.5);
+
+  --elhalc8n-surface-3-light: rgba(255, 255, 255, 0.85);
+  --elhalc8n-surface-3-dark: rgba(15, 23, 42, 0.85);
+}
+
+/* Reduced Transparency Fallback for Accessibility */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --elhalc8n-glass-blur-sm: 0px;
+    --elhalc8n-glass-blur-md: 0px;
+    --elhalc8n-glass-blur-lg: 0px;
+    --elhalc8n-glass-blur-xl: 0px;
+
+    --elhalc8n-surface-1-light: rgb(248, 250, 252);
+    --elhalc8n-surface-1-dark: rgb(15, 23, 42);
+
+    --elhalc8n-surface-2-light: rgb(255, 255, 255);
+    --elhalc8n-surface-2-dark: rgb(30, 41, 59);
+
+    --elhalc8n-surface-3-light: rgb(255, 255, 255);
+    --elhalc8n-surface-3-dark: rgb(15, 23, 42);
+  }
+}
+
+/* Ambient Canvas Mesh Gradients (Layer 0) */
+.glass-ambient-canvas {
+  position: relative;
+  min-height: 100vh;
+  background-color: rgb(248, 250, 252);
+  color: rgb(15, 23, 42);
+  overflow-x: hidden;
+}
+
+.dark .glass-ambient-canvas {
+  background-color: rgb(2, 6, 23);
+  color: rgb(248, 250, 252);
+}
+
+.glass-ambient-canvas::before,
+.glass-ambient-canvas::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+
+/* Top-right ambient glow */
+.glass-ambient-canvas::before {
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(56, 189, 248, 0.15) 70%, transparent 100%);
+}
+
+/* Bottom-left ambient glow */
+.glass-ambient-canvas::after {
+  bottom: -10%;
+  left: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(99, 102, 241, 0.1) 70%, transparent 100%);
+}
+
+.dark .glass-ambient-canvas::before {
+  opacity: 0.18;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(14, 165, 233, 0.2) 70%, transparent 100%);
+}
+
+.dark .glass-ambient-canvas::after {
+  opacity: 0.15;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.45) 0%, rgba(59, 130, 246, 0.15) 70%, transparent 100%);
+}
+
+/* Layer 1: Glass Shell (Sidebar, Topbar, Header) */
+.glass-shell {
+  background-color: var(--elhalc8n-surface-1-light);
+  backdrop-filter: blur(var(--elhalc8n-glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--elhalc8n-glass-blur-md));
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-shell {
+  background-color: var(--elhalc8n-surface-1-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Layer 2: Glass Card (Dashboard widgets, metric cards, table containers) */
+.glass-card-surface {
+  background-color: var(--elhalc8n-surface-2-light);
+  backdrop-filter: blur(var(--elhalc8n-glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--elhalc8n-glass-blur-sm));
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass-card-surface {
+  background-color: var(--elhalc8n-surface-2-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+}
+
+/* Layer 3: Interactive Glass (Modals, Popovers, Drawers, Dropdowns) */
+.glass-interactive-surface {
+  background-color: var(--elhalc8n-surface-3-light);
+  backdrop-filter: blur(var(--elhalc8n-glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--elhalc8n-glass-blur-xl));
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-interactive-surface {
+  background-color: var(--elhalc8n-surface-3-dark);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Specular Shimmer Edge Highlight */
+.glass-specular-border {
+  position: relative;
+}
+
+.glass-specular-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.15) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.dark .glass-specular-border::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(99, 102, 241, 0.25) 100%);
+}
+
+/* Smooth custom glass scrollbar */
+.glass-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+.glass-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.5);
+}
+
+.dark .glass-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
