@@ -17,6 +17,8 @@ export * from './navigation/breadcrumb-trail';
 export * from './navigation/app-sidebar';
 export * from './navigation/top-navbar';
 export * from './navigation/command-palette';
+export * from './navigation/notification-popover';
+export * from './navigation/user-profile-menu';
 
 // Data Display (Layer 2)
 export * from './data-display/stat-metric-card';

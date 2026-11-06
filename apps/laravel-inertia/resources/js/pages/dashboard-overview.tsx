@@ -95,6 +95,13 @@ export default function DashboardOverview({
         </Link>
       )}
       appName="GlassAdmin Laravel"
+      logo={
+        <img
+          src="/logo.png"
+          alt="GlassAdmin Laravel logo"
+          className="w-9 h-9 rounded-xl object-contain shadow-md shadow-rose-500/20"
+        />
+      }
       userMenu={
         <div className="flex items-center gap-2 pl-2">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-rose-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">

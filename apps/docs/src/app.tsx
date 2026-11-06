@@ -233,6 +233,13 @@ export function App() {
           </button>
         )}
         appName="@elhalc8n/ui"
+        logo={
+          <img
+            src="/logo.png"
+            alt="@elhalc8n/ui logo"
+            className="w-9 h-9 rounded-xl object-contain shadow-md shadow-indigo-500/20"
+          />
+        }
         breadcrumbs={
           <BreadcrumbTrail
             items={[

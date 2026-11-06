@@ -62,6 +62,13 @@ export default function NextDashboardLayout({
         </Link>
       )}
       appName="GlassAdmin Next.js"
+      logo={
+        <img
+          src="/logo.png"
+          alt="GlassAdmin Next.js logo"
+          className="w-9 h-9 rounded-xl object-contain shadow-md shadow-sky-500/20"
+        />
+      }
       breadcrumbs={
         <BreadcrumbTrail
           items={[

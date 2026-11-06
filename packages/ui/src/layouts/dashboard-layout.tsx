@@ -80,6 +80,7 @@ export function DashboardLayout({
           appName={appName}
           footer={sidebarFooter}
           collapsed={false}
+          showToggle={false}
           className="w-full h-full border-none shadow-none bg-transparent"
         />
       </GlassDrawer>

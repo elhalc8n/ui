@@ -23,6 +23,13 @@ export default function RegisterPage() {
     <AuthLayout
       title="Create Workspace Account"
       subtitle="Join your team on the Modern Glassy Admin dashboard."
+      logo={
+        <img
+          src="/logo.png"
+          alt="Brand logo"
+          className="w-14 h-14 rounded-2xl object-contain shadow-xl shadow-indigo-500/20"
+        />
+      }
       footer={
         <p>
           Already have an account?{' '}

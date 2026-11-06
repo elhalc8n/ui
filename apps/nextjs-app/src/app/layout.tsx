@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Glassy Admin — Next.js (App Router)',
   description: 'Modern Glassmorphic Admin Dashboard built with Next.js and @elhalc8n/ui',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({

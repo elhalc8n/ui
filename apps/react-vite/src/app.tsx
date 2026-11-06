@@ -75,6 +75,13 @@ export function App() {
         </button>
       )}
       appName="GlassAdmin Vite"
+      logo={
+        <img
+          src="/logo.png"
+          alt="GlassAdmin logo"
+          className="w-9 h-9 rounded-xl object-contain shadow-md shadow-indigo-500/20"
+        />
+      }
       breadcrumbs={
         <BreadcrumbTrail
           items={[

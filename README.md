@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="@elhalc8n/ui logo" width="120" style="border-radius: 24px;" />
+</p>
+
 # `@elhalc8n/ui` — Modern Glassy Admin Dashboard & Component Suite
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)

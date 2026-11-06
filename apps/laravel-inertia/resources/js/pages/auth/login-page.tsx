@@ -23,6 +23,13 @@ export default function LoginPage() {
     <AuthLayout
       title="Welcome Back"
       subtitle="Sign in to your Glassy Admin dashboard to continue."
+      logo={
+        <img
+          src="/logo.png"
+          alt="Brand logo"
+          className="w-14 h-14 rounded-2xl object-contain shadow-xl shadow-indigo-500/20"
+        />
+      }
       footer={
         <p>
           Don&apos;t have an account yet?{' '}
